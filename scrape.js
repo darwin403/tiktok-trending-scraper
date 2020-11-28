@@ -184,6 +184,13 @@ const options = {
 
             // scroll for next results
             if (resultsCount < options.maxResults) {
+              await page.waitForFunction(
+                (resultsCount) =>
+                  document.querySelectorAll("span.lazyload-wrapper").length ===
+                  resultsCount,
+                {},
+                resultsCount
+              );
               await page.evaluate(() =>
                 window.scrollTo(0, document.body.scrollHeight)
               );
