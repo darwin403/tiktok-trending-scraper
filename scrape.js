@@ -186,7 +186,7 @@ const options = {
             if (resultsCount < options.maxResults) {
               await page.waitForFunction(
                 (resultsCount) =>
-                  document.querySelectorAll("span.lazyload-wrapper").length ===
+                  document.querySelectorAll("span.lazyload-wrapper").length >=
                   resultsCount,
                 {},
                 resultsCount
